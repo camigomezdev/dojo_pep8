@@ -5,7 +5,7 @@ codebreaker = CodeBreaker()
 
 attempt = 0
 
-print('Jugar Codebreaker!')
+print("Let's play Codebreaker!")
 
 while attempt < total_attempts:
     """
@@ -16,7 +16,7 @@ while attempt < total_attempts:
     """
 
     print("Attempt number:", attempt + 1)
-    number = input('Numero:')
+    number = input('Number:')
     attempt += 1
 
     if not number:

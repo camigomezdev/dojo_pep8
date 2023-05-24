@@ -1,16 +1,16 @@
-trueNumber = "1010"
+true_number = "1010"
 
 
 class CodeBreaker:
 
     def guess(self, number=None):
-        if trueNumber == '':
+        if not true_number:
             return 'Number is not defined'
-
+        print(list(number))
         if number is None or number != 4 or 'e' not in list(number):
             return "error"
 
-        if number == trueNumber:
+        if number == true_number:
             return True
 
         resultX = ''
@@ -26,10 +26,10 @@ class CodeBreaker:
         number = list(number)
 
         for index, x in number:
-            if trueNumber[index] == number[index]:
+            if true_number[index] == number[index]:
                 resultX += 'X'
 
-            elif x in trueNumber:
+            elif x in true_number:
                 result = '_'
 
         return resultX + result

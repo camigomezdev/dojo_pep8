@@ -11,8 +11,10 @@ while attempt < total_attempts:
     """
     This loop allows the player to make attempts to guess the code.
 
-    The player is prompted to enter a number, and the guess is evaluated using the CodeBreaker class.
-    The loop continues until the player wins, exceeds the maximum attempts, or enters an invalid number.
+    The player is prompted to enter a number, and the guess is evaluated
+    using the CodeBreaker class.
+    The loop continues until the player wins, exceeds the maximum attempts,
+    or enters an invalid number.
     """
 
     print("Attempt number:", attempt + 1)
@@ -26,7 +28,7 @@ while attempt < total_attempts:
     resolve = codebreaker.guess(number)
     print(resolve)
 
-    if resolve:
+    if resolve is True:
         print('You win!!')
         break
     elif resolve == 'error':

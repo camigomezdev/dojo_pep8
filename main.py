@@ -4,10 +4,12 @@ It handles user input, provides user feedback, and controls the game
  loop.
 """
 from codebreaker import Codebreaker
+from core.decorators import with_logging
 
 TOTAL_TRIES: int = 10
 
 
+@with_logging
 def play_codebreaker() -> None:
     """
     It initiates a game of Codebreaker and handles user input and
@@ -20,7 +22,7 @@ def play_codebreaker() -> None:
     codebreaker: Codebreaker = Codebreaker()
     attempt: int = 0
 
-    print("Let's play Codebreaker!")
+    print(f"Let's play Codebreaker!\nYou have {TOTAL_TRIES} attempts.")
 
     while attempt < TOTAL_TRIES:
         attempt += 1

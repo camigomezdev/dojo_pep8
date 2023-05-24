@@ -20,7 +20,7 @@ y genera un Pull Request con tus cambios.
 4. Un "X" significa que has adivinado correctamente un número en la posición correcta dentro de la secuencia.
 5. Un "_" significa que has adivinado correctamente un número, pero en una posición incorrecta dentro de la secuencia.
 6. Utilizando esta retroalimentación, deberás deducir la secuencia correcta.
-Por ejemplo, si tu intento es "1234" y recibes una retroalimentación de "XX__", significa que has adivinado correctamente dos números y están en la posición correcta y dos están en la posición incorrecta.
+Por ejemplo, si tu intento es "1234" y recibes una retroalimentación de "XX__", significa que has adivinado correctamente dos números y están en la posición correcta y otros dos también fueron adivinados correctamente pero están en la posición incorrecta.
 7. Con base en la retroalimentación recibida, realiza nuevos intentos ajustando tus suposiciones hasta que logres adivinar la secuencia correcta.
 8. Continúa haciendo intentos y recibiendo retroalimentación hasta que logres descifrar la secuencia completa.
 

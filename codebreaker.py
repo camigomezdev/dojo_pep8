@@ -1,34 +1,40 @@
-trueNumber = "1010";
+"""
+    This module defines the Codebreaker class, which has a single method
+    called "guess"
+"""
+
+RIGHT_NUMBER = "1023"
+
 
 class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
+    """
+        This class defines the Codebreaker object, and contains only one method
+        named "guess"
+    """
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+    def guess(self, number=None):
+        """
+            This method takes two parameters, self and number (with a default
+            value of None). It will test if the "number" entered by the user
+            matches the "RIGHT_NUMBER" constant, and if not, return an "X" for
+            each number guessed correctly and in the right position, and "_"
+            for each number order guessed correctly but in the wrong position.
+        """
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+        if number is None or len(number) != 4 or not number.isnumeric():
+            return False
+        if number == RIGHT_NUMBER:
+            return True
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        ok_number_ok_position = ''
+        ok_number_bad_position = ''
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        number = list(number)
 
-      elif x in trueNumber:
-        resultado_='_'
+        for index, digit in enumerate(number):
+            if RIGHT_NUMBER[index] == number[index]:
+                ok_number_ok_position += 'X'
+            elif digit in RIGHT_NUMBER:
+                ok_number_bad_position += '_'
 
-    return resultadoX+resultado_
+        return ok_number_ok_position + ok_number_bad_position

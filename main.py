@@ -32,4 +32,6 @@ while attempt < total_attempts:
     elif resolve == 'error':
         print('Please input a number of 4 digits')
         break
-
+    elif resolve == 'repeated':
+        print('Don\'t repeat numbers')
+        break

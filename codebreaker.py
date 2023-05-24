@@ -14,7 +14,7 @@ class CodeBreaker:
             return True
 
         resultadoX = ''
-        resultado_ = ''
+        resultado = ''
         arrayNumber = []
 
         for x in len(number):
@@ -30,6 +30,6 @@ class CodeBreaker:
                 resultadoX += 'X'
 
             elif x in trueNumber:
-                resultado_ = '_'
+                resultado = '_'
 
-        return resultadoX + resultado_
+        return resultadoX + resultado

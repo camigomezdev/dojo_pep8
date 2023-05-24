@@ -1,18 +1,39 @@
-from codebreaker import Codebreaker
+from codebreaker import CodeBreaker
 
-intentos_totales = 10
-codebreaker = Codebreaker()
+total_attempts = 10
+codebreaker = CodeBreaker()
 
-intento = 0
+attempt = 0
 
-print('Jugar Codebreaker!')
+print("Let's play Codebreaker!")
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
+while attempt < total_attempts:
+    """
+    This loop allows the player to make attempts to guess the code.
 
+    The player is prompted to enter a number, and the guess is evaluated
+    using the CodeBreaker class.
+    The loop continues until the player wins, exceeds the maximum attempts,
+    or enters an invalid number.
+    """
 
+    print("Attempt number:", attempt + 1)
+    number = input('Number:')
+    attempt += 1
+
+    if not number:
+        print("Please write a number")
+        break
+
+    resolve = codebreaker.guess(number)
+    print(resolve)
+
+    if resolve is True:
+        print('You win!!')
+        break
+    elif resolve == 'error':
+        print('Please input a number of 4 digits')
+        break
+    elif resolve == 'repeated':
+        print('Don\'t repeat numbers')
+        break

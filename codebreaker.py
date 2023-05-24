@@ -1,34 +1,49 @@
-trueNumber = "1010";
+true_number = "1010"
 
-class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+class CodeBreaker:
+    """
+    CodeBreaker class represents a code-breaking game where the player guesses a number.
+    """
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+    def guess(self, number=None):
+        """
+        Guesses the given number and returns the result.
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        Args:
+            number (str): The number to guess.
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        Returns:
+            str or bool: The result of the guess. Returns 'Number is not defined' if true_number is not defined,
+                        'error' if the number is not provided or has an incorrect length,
+                        True if the guess matches the true_number,
+                        or a combination of 'X' and '_' characters indicating the correct and incorrect positions.
 
-      elif x in trueNumber:
-        resultado_='_'
+        """
+        if not true_number:
+            return 'Number is not defined'
 
-    return resultadoX+resultado_
+        if number is None or len(number) != 4:
+            return "error"
+
+        if number == true_number:
+            return True
+
+        resultX = ''
+        result_ = ''
+        array_number = [False] * 10
+
+        for x in number:
+            if array_number[int(x)]:
+                return 'repeated'
+            array_number[int(x)] = True
+
+        number = list(number)
+
+        for index, x in enumerate(number):
+            if true_number[index] == number[index]:
+                resultX += 'X'
+            elif x in true_number:
+                result_ = '_'
+
+        return resultX + result_

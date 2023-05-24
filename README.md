@@ -1,27 +1,41 @@
-# Dojo PEP y buenas practicas
+# Dojo PEP and Good Practices
 
-## Ejercicio
+This exercise focuses on improving Python coding standards by adhering to PEP8 style guide. You'll be working on a simple Codebreaker game where you have to guess a hidden sequence of numbers. 
 
-Crea un Fork de este proyecto, corrige los errores siguiendo la guía de estilos de Python PEP8
-y genera un Pull Request con tus cambios.
+## Exercise
 
-1. Corrige la logica para que el juego funcione correctamente.
-2. Corrige la nomenclatura y forma en la que está escrito el codigo para que siga la guia de estilos de python (PEP8).
-3. Agrega comentarios y documentación al código.
-4. Agrega un linter al proyecto.
-5. Agrega un formater al proyecto.
-6. (Nice to have) Agrega un pre-commit.
+For this exercise, you need to correct the errors in this Python project by following the PEP8 style guide:
 
-## Como jugar Codebreaker?
+1. **Fork the Project:** First, create your own copy of this project repository by "forking" it on GitHub. If you're not familiar with forking, you can learn more about it [here](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
 
-1. El objetivo del juego es adivinar una secuencia numérica de 4 cifras oculta por el oponente en el menor número de intentos posibles.
-2. La secuencia numérica puede consistir en números del 0 al 9, y no se repiten los números dentro de la secuencia.
-3. Cada vez que hagas un intento, recibirás una retroalimentación en forma de "X" y "_".
-4. Un "X" significa que has adivinado correctamente un número en la posición correcta dentro de la secuencia.
-5. Un "_" significa que has adivinado correctamente un número, pero en una posición incorrecta dentro de la secuencia.
-6. Utilizando esta retroalimentación, deberás deducir la secuencia correcta.
-Por ejemplo, si tu intento es "1234" y recibes una retroalimentación de "XX__",significa que has adivinado correctamente dos numero en posición y dos están el la posición incorrecta.
-7. Con base en la retroalimentación recibida, realiza nuevos intentos ajustando tus suposiciones hasta que logres adivinar la secuencia correcta.
-8. Continúa haciendo intentos y recibiendo retroalimentación hasta que logres descifrar la secuencia completa.
+2. **Correct the Code:** The main task is to correct the code's logic to ensure the game functions correctly and revise the code style to make it adhere to the PEP8 style guide. If you're not familiar with PEP8, you can learn more about it [here](https://www.python.org/dev/peps/pep-0008/).
 
-Recuerda que el desafío es encontrar la secuencia correcta en el menor número de intentos posible. ¡Buena suerte y disfruta jugando Codebreaker!
+3. **Add Comments:** Make sure your code is understandable. Add comments and documentation wherever necessary.
+
+4. **Include a Linter:** Add a linter to the project. A linter is a tool that analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs. If you're not familiar with linters, you can learn more about Python Linters [here](https://realpython.com/python-code-quality/).
+
+5. **Include a Formatter:** Add a formatter to the project. A formatter is a tool that transforms source code into a new code that adheres to a particular style guide. If you're not familiar with formatters, you can learn more about Python Formatters [here](https://realpython.com/python-formatter/).
+
+6. **(Optional) Include a Pre-commit Hook:** As an optional task, try adding a pre-commit hook to the project. This ensures that every commit meets your project's requirements before it's committed. You can learn more about Pre-commit Hooks [here](https://pre-commit.com/).
+
+After making these changes, generate a Pull Request with your updates. This is your solution submission. If you're not familiar with Pull Requests, you can learn more about it [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
+
+## How to Play Codebreaker?
+
+1. The objective of the game is to guess a hidden 4-digit numeric sequence, put together by your opponent, in as few attempts as possible.
+
+2. The numeric sequence can consist of numbers from 0 to 9, and numbers within the sequence do not repeat.
+
+3. Each time you make an attempt, you'll receive feedback in the form of "X" and "_".
+
+4. An "X" means you've correctly guessed a number in the right position within the sequence.
+
+5. A "_" means you've correctly guessed a number, but it's in the wrong position within the sequence.
+
+6. Using this feedback, you should deduce the correct sequence. For example, if your attempt is "1234" and you receive feedback of "XX__", it means that you've guessed two numbers correctly in their right positions, and two numbers are in the wrong positions.
+
+7. Based on the feedback received, make new attempts adjusting your guesses until you manage to guess the correct sequence.
+
+8. Continue making attempts and receiving feedback until you manage to decipher the complete sequence.
+
+Remember, the challenge is to find the correct sequence in as few attempts as possible. Good luck and enjoy playing Codebreaker

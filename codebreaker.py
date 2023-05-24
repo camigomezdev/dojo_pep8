@@ -7,14 +7,14 @@ class CodeBreaker:
         if trueNumber == '':
             return 'Number is not defined'
 
-        if number is None or len(number) != 4 or 'e' not in list(number):
+        if number is None or number != 4 or 'e' not in list(number):
             return "error"
 
         if number == trueNumber:
             return True
 
-        resultadoX = ''
-        resultado = ''
+        resultX = ''
+        result = ''
         arrayNumber = []
 
         for x in len(number):
@@ -27,9 +27,9 @@ class CodeBreaker:
 
         for index, x in number:
             if trueNumber[index] == number[index]:
-                resultadoX += 'X'
+                resultX += 'X'
 
             elif x in trueNumber:
-                resultado = '_'
+                result = '_'
 
-        return resultadoX + resultado
+        return resultX + result

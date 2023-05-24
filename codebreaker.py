@@ -1,5 +1,6 @@
 true_number = "1010"
 
+
 class CodeBreaker:
     """
     CodeBreaker class represents a code-breaking game where the player guesses a number.
@@ -31,9 +32,9 @@ class CodeBreaker:
         resultX = ''
         result_ = ''
         array_number = [False] * 10
-        
+
         for x in number:
-            if array_number[int(x)] == True:
+            if array_number[int(x)]:
                 return 'repeated'
 
             array_number[int(x)] = True
@@ -47,4 +48,3 @@ class CodeBreaker:
                 result_ = '_'
 
         return resultX + result_
-

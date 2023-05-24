@@ -26,7 +26,7 @@ while attempt < total_attempts:
     resolve = codebreaker.guess(number)
     print(resolve)
 
-    if resolve == True:
+    if resolve:
         print('You win!!')
         break
     elif resolve == 'error':

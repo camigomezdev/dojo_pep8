@@ -36,7 +36,6 @@ class CodeBreaker:
         for x in number:
             if array_number[int(x)]:
                 return 'repeated'
-
             array_number[int(x)] = True
 
         number = list(number)

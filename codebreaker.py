@@ -30,6 +30,13 @@ class CodeBreaker:
 
         resultX = ''
         result_ = ''
+        array_number = [False] * 10
+        
+        for x in number:
+            if array_number[int(x)] == True:
+                return 'repeated'
+
+            array_number[int(x)] = True
 
         number = list(number)
 

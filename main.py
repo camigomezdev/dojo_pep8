@@ -1,13 +1,13 @@
 from codebreaker import CodeBreaker
 
-intentos_totales = 10
+total_attempts = 10
 codebreaker = CodeBreaker()
 
-intento = 0
+attempt = 0
 
 print('Jugar Codebreaker!')
 
-while intento != intentos_totales:
+while attempt != total_attempts:
     number = input('Numero:')
     resolve = codebreaker.guess(number)
     print(resolve)

@@ -6,8 +6,8 @@ class CodeBreaker:
     def guess(self, number=None):
         if not true_number:
             return 'Number is not defined'
-        print(list(number))
-        if number is None or number != 4 or 'e' not in list(number):
+        
+        if not number or len(number) != 4:
             return "error"
 
         if number == true_number:
@@ -15,13 +15,13 @@ class CodeBreaker:
 
         resultX = ''
         result = ''
-        arrayNumber = []
+        array_number = []
 
         for x in len(number):
-            if (arrayNumber[number[x]]):
+            if (array_number[number[x]]):
                 return 'error'
 
-            arrayNumber[number[x]] = True
+            array_number[number[x]] = True
 
         number = list(number)
 

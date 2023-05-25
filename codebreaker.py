@@ -2,7 +2,7 @@ TRUE_NUMBER = "1010"
 
 
 class Codebreaker:
-    def guess(self, number: list = None):
+    def guess(self, number: str = None):
         if TRUE_NUMBER == "":
             return "Number is not defined"
 

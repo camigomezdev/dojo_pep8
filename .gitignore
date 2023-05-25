@@ -1054,6 +1054,7 @@ tags
 [._]*.un~
 ### Node template
 # Logs
+!logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -1175,5 +1176,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*!/.run/
-!/logs/log-24-May-2023-22-21-51.log
-!/logs/

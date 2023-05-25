@@ -9,7 +9,7 @@ print("Jugar Codebreaker!")
 
 while attempts != TOTAL_ATTEMPTS:
     number_to_guess = input("Guess Number:")
-    if resolve := codebreaker.adivinar(number_to_guess):
+    if resolve := codebreaker.guess(number_to_guess):
         print("You win!!")
         break
     attempts += 1

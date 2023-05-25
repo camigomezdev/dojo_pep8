@@ -1,0 +1,11 @@
+[core.decorators][2023-05-24 22:21:51][INFO][decorators][wrapper][36]: Calling play_codebreaker
+[core.decorators][2023-05-24 22:21:51][INFO][decorators][wrapper][36]: Calling _generate_random_number
+[core.decorators][2023-05-24 22:21:51][INFO][decorators][wrapper][71]: Execution of _generate_random_number took 1.7099999240599573e-05 seconds.
+[core.decorators][2023-05-24 22:21:51][INFO][decorators][wrapper][38]: Finished _generate_random_number
+[__main__][2023-05-24 22:21:51][INFO][main][play_codebreaker][30]: Let's play Codebreaker!
+You have 10 attempts.
+[core.decorators][2023-05-24 22:21:57][INFO][decorators][wrapper][36]: Calling guess
+[core.decorators][2023-05-24 22:21:57][INFO][decorators][wrapper][38]: Finished guess
+[__main__][2023-05-24 22:21:57][INFO][main][play_codebreaker][40]: X
+[core.decorators][2023-05-24 22:22:03][INFO][decorators][wrapper][36]: Calling guess
+[__main__][2023-05-24 22:22:03][ERROR][main][play_codebreaker][38]: Invalid guess. Must be a 4-digit number with unique digits.

@@ -1,34 +1,33 @@
-trueNumber = "1010";
+TRUE_NUMBER = "1010"
+
 
 class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
+    def guess(self, number: list = None):
+        if TRUE_NUMBER == "":
+            return "Number is not defined"
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+        if number is None or len(number) != 4 or "e" not in list(number):
+            return "error"
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+        if number == TRUE_NUMBER:
+            return True
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        result_x = ""
+        result_ = ""
+        array_number = []
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        for x in len(number):
+            if array_number[number[x]]:
+                return "error"
 
-      elif x in trueNumber:
-        resultado_='_'
+        array_number[number[x]] = True
 
-    return resultadoX+resultado_
+        number = list(number)
+
+        for index, x in number:
+            if TRUE_NUMBER[index] == number[index]:
+                result_x += "X"
+            elif x in TRUE_NUMBER:
+                result_ = "_"
+
+        return result_x + result_

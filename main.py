@@ -3,9 +3,14 @@ This module contains the main function that runs the Codebreaker game.
 It handles user input, provides user feedback, and controls the game
  loop.
 """
+import logging
+
 from codebreaker import Codebreaker
+from core import logging_config
 from core.decorators import with_logging
 
+logging_config.setup_logging()
+logger: logging.Logger = logging.getLogger(__name__)
 TOTAL_TRIES: int = 10
 
 
@@ -22,7 +27,7 @@ def play_codebreaker() -> None:
     codebreaker: Codebreaker = Codebreaker()
     attempt: int = 0
 
-    print(f"Let's play Codebreaker!\nYou have {TOTAL_TRIES} attempts.")
+    logger.info("Let's play Codebreaker!\nYou have %s attempts.", TOTAL_TRIES)
 
     while attempt < TOTAL_TRIES:
         attempt += 1
@@ -30,15 +35,15 @@ def play_codebreaker() -> None:
         try:
             resolve: str = codebreaker.guess(number)
         except ValueError as error:
-            print(error)
+            logger.warning(error)
             continue
-        print(resolve)
+        logger.info(resolve)
         if resolve.count("X") == 4:
-            print("You win!!!")
+            logger.info("You win!!!")
             break
 
     if attempt == TOTAL_TRIES:
-        print("You have reached the maximum number of tries. You lost.")
+        logger.info("You have reached the maximum number of tries. You lost.")
 
 
 if __name__ == "__main__":

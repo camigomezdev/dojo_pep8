@@ -1,13 +1,16 @@
 """
 A module for test logging config in the tests.test_core package.
 """
-import os
 import logging
+import os
 from datetime import datetime
 from pathlib import Path
 
-from core.logging_config import (_create_logs_folder, _build_log_filename,
-                                 _configure_file_handler)
+from core.logging_config import (
+    _build_log_filename,
+    _configure_file_handler,
+    _create_logs_folder,
+)
 
 
 def test_create_logs_folder() -> None:

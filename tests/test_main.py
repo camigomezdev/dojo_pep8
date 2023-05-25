@@ -5,8 +5,8 @@ import pytest
 from _pytest.capture import CaptureFixture
 from _pytest.monkeypatch import MonkeyPatch
 
-from main import play_codebreaker
 from codebreaker import Codebreaker
+from main import play_codebreaker
 
 
 def test_play_codebreaker(

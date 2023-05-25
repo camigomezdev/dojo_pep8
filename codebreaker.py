@@ -1,10 +1,13 @@
 """
 This module contains the mechanics of the Codebreaker game.
 """
+import logging
 import random
 from typing import Optional
 
-from core.decorators import with_logging, benchmark
+from core.decorators import benchmark, with_logging
+
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 class Codebreaker:

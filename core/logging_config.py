@@ -30,8 +30,10 @@ def _create_logs_folder() -> str:
     :rtype: str
     """
     project_root: str = os.path.dirname(os.path.abspath(__file__))
+    print(project_root)
     while os.path.basename(project_root) != "dojo_pep8":
         project_root = os.path.dirname(project_root)
+    print("now:", project_root)
     logs_folder_path: str = f"{project_root}/logs"
     if not os.path.exists(logs_folder_path):
         os.makedirs(logs_folder_path, exist_ok=True)
@@ -91,7 +93,7 @@ def _setup_file_handler(
 
 
 def setup_logging(
-        log_level: int = logging.DEBUG,
+        log_level: int = logging.ERROR,
 ) -> None:
     """
     Initialize logging for the application

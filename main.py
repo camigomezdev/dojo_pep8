@@ -1,18 +1,29 @@
-from codebreaker import Codebreaker
+""" Main file for CodeBreaker"""
+# __doc__ (Main file for little game CodeBreaker where you must guess
+# the secret number)
 
-intentos_totales = 10
-codebreaker = Codebreaker()
+from codebreaker import CodeBreaker
 
-intento = 0
+TOTAL_TRIES = 10  # Amount of total tries (int)
+TRIES = 0
 
-print('Jugar Codebreaker!')
+print('Play Codebreaker!')
+print('-----------------')
+print('10 tries!')
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
+codebreaker = CodeBreaker()
 
+while TRIES != TOTAL_TRIES:
+    number = input('Number: ')
+    resolve = codebreaker.guess_number(number)
 
+    if isinstance(resolve, bool) and resolve:
+        print('YOU WIN!!!')
+        break
+
+    print(resolve)
+
+    TRIES += 1
+    print(f'{TOTAL_TRIES-TRIES} tries remain...')
+else:
+    print('GAME OVER!!!')

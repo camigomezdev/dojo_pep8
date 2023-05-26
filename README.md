@@ -6,8 +6,7 @@ This exercise focuses on improving Python coding standards by adhering to PEP8 s
 
 1. **Fork the Project:** First, create your own copy of this project 
    repository by "forking" it on GitHub. If you're not familiar with forking,
-   you can learn more about it [here](https://docs.github.
-   com/en/github/getting-started-with-github/fork-a-repo).
+   you can learn more about it [here](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 
 2. Clone the **repository**

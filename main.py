@@ -5,7 +5,7 @@ codebreaker = CodeBreaker()
 
 intento = 0
 
-print('Jugar Codebreaker!')
+print('Play Codebreaker!')
 
 while intento != INTENTOS_TOTALES:
 

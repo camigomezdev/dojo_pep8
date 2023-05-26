@@ -1,4 +1,4 @@
-TRUE_NUMBER = "1010"
+TRUE_NUMBER = "1489"
 
 
 class CodeBreaker:
@@ -8,22 +8,23 @@ class CodeBreaker:
             return 'Number is not defined'
 
         if numero is None or len(numero) != 4:
-            return "error"
+            return "Error: number must have 4 digits"
 
         if numero == TRUE_NUMBER:
             return True
 
         caracter = ''
-        array_number = []
+        array_number = [1]
 
-        # for x in range(len(numero)):
+        # Evaluar si un número se repite se repite dentro de la secuencia
+        for x in range((len(numero))):
 
-        #     if array_number[numero[x]] == True:
-        #         return 'error'
+            if numero[x] in array_number:
+                return f"Error: you have already entered the number {numero[x]} in position {array_number.index(numero[x])}"
 
-        #     array_number[numero[x]] = True
+            array_number.append(numero[x])
 
-        # numero = list(numero)
+        numero = list(numero)
 
         for num in range(len(numero)):
             # Realiza la búsqueda y compara uno a uno la posición del índice del 'TRUE_NUMBER'
@@ -37,4 +38,4 @@ class CodeBreaker:
             else:
                 caracter += ' '
 
-        return f"'{caracter}'"
+        return caracter

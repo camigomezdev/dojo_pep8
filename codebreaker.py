@@ -1,34 +1,54 @@
-trueNumber = "1010";
+"""Codebreaker module: the core of the game"""
+
+TRUE_NUMBER = "7329"
+
 
 class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
+    """ A class that represents a match of the game and the rules to follow.
+    """
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+    def guess_number(self, number=None):
+        """Compares the number given by the player with the number to be 
+        guessed and indicates the result of the player's guess. 
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+        Args:
+            number (str, optional): A four digit number in string format. 
+                                    Defaults to None.
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        Returns:
+            str or bool: A string describing the result of the guess if 
+                        the answer is wrong. "True" is the answer is right.
+        """
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        if TRUE_NUMBER == '':
+            return 'Number is not defined'
 
-      elif x in trueNumber:
-        resultado_='_'
+        if number is None or len(number) != 4:
+            return "error"
 
-    return resultadoX+resultado_
+        for digit in number:
+            if digit not in "0123456789":
+                return "error"
+
+        if number == TRUE_NUMBER:
+            return True
+
+        accurate_position = ''
+        wrong_position = ''
+        validated_digits = []
+
+        for digit in number:
+            if digit in validated_digits:
+                return 'error'
+            validated_digits.append(digit)
+
+        number = list(number)
+
+        for index, digit in enumerate(number):
+            if TRUE_NUMBER[index] == number[index]:
+                accurate_position += 'X'
+
+            elif digit in TRUE_NUMBER:
+                wrong_position += '_'
+
+        return accurate_position + wrong_position

@@ -1,34 +1,35 @@
-trueNumber = "1010";
+import random
+from typing import Union
+
 
 class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
+    def __init__(self) -> None:
+        self.NUMBER_TO_GUESS = "".join(random.sample("0123456789", 4))
+        print(f"number to guess 👀: {self.NUMBER_TO_GUESS}")
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+    def guess(self, number: str = None) -> Union[bool, str]:
+        if not self.NUMBER_TO_GUESS:
+            raise Exception("Number is not defined")
+        elif not number.isdecimal():
+            raise Exception("Number must be decimal")
+        elif len(number) != 4:
+            raise Exception("Number must have 4 digits")
+        elif number == self.NUMBER_TO_GUESS:
+            return True
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+        array_number = []
+        for _, digit in enumerate(number):
+            if digit in array_number:
+                raise Exception("Number must not have repeated digits")
+            array_number.append(digit)
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        result_x = ""
+        result__ = ""
+        number = list(number)
+        for index, digit in enumerate(number):
+            if self.NUMBER_TO_GUESS[index] == number[index]:
+                result_x += "X"
+            elif digit in self.NUMBER_TO_GUESS:
+                result__ += "_"
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
-
-      elif x in trueNumber:
-        resultado_='_'
-
-    return resultadoX+resultado_
+        return result_x + result__

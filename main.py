@@ -5,15 +5,23 @@ TOTAL_ATTEMPS = 10
 
 codebreaker = Codebreaker()
 
-attemp = 0
+attemps = 0
 
 print("Let's play Codebreaker!!")
 
-while attemp != TOTAL_ATTEMPS:
-    number = input("Number:")
-    resolve = codebreaker.guess(number)
-    print(resolve)
+while attemps != TOTAL_ATTEMPS:
+    attemps += 1
 
-    if resolve:
-        print("You win!!")
-        break
+    number = input("Number: ")
+    try:
+        resolve = codebreaker.guess(number)
+        if isinstance(resolve, bool):
+            print("You win!!")
+            print(f"You needed just {attemps} to guess :)")
+            break
+        else:
+            if resolve:
+                print(f"Nice try: {resolve}")
+            print("Please keep guessing...")
+    except Exception as err:
+        print(f"error: {str(err)}")

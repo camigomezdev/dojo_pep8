@@ -1,34 +1,53 @@
-trueNumber = "1010";
+import dataclasses
 
+NUMERO_A_ADIVINAR = "2345"
+
+
+@dataclasses.dataclass
 class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
+    """Esta clase contiene el metodo adivinar
+    """
+    numero_fallado: str
+    numero_acertado: str
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+    def adivinar(self, numero_ingresado=None):
+        """Metodo que evalua el numeor ingresado por el jugador para
+        determinar si los números ingresados son correctos o estan contenidos
+        dentro del numero a adivinar.
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+        Args:
+            numero_ingresado (str, optional): Recibe el numero para tratar de
+            adivinar el numero oculto. Defaults to None.
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+        Returns:
+            bool: Retorna False si aun no encuentra el nuero y True cuando es
+            encontrado
+        """
+        if NUMERO_A_ADIVINAR == '':
+            print("El número no esta definido!")
+            return False
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        if numero_ingresado is None:
+            print("Error, debe ingresar un número")
+            return False
 
-      elif x in trueNumber:
-        resultado_='_'
+        if len(numero_ingresado) != 4:
+            print("Error, el número debe ser de 4 digitos")
+            return False
 
-    return resultadoX+resultado_
+        if numero_ingresado == NUMERO_A_ADIVINAR:
+            print(f"Adivinaste, el número es: {NUMERO_A_ADIVINAR}")
+            return True
+
+        resultado = ""
+
+        for index, item in enumerate(numero_ingresado):
+            if NUMERO_A_ADIVINAR[index] == item:
+                resultado += self.numero_acertado
+            elif item in NUMERO_A_ADIVINAR:
+                resultado += self.numero_fallado
+            else:
+                resultado += " "
+
+        print(resultado)
+        return False

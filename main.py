@@ -1,18 +1,22 @@
+"""The file that is executed and in which the interaction with the
+the user occurs.
+"""
+
 from codebreaker import Codebreaker
 
-intentos_totales = 10
+TOTAL_ATTEMPTS = 10
 codebreaker = Codebreaker()
 
-intento = 0
+current_attempt = 0
 
-print('Jugar Codebreaker!')
+print('Play Codebreaker!')
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
-
-
+while current_attempt != TOTAL_ATTEMPTS:
+    number = input('Number: ')
+    resolve = codebreaker.guess_number(number)
+    print(resolve)
+    if resolve is True:
+        print('You win!!')
+        break
+    current_attempt += 1
+    print(f'You have {TOTAL_ATTEMPTS - current_attempt} attempts left')

@@ -1,33 +1,35 @@
-TRUE_NUMBER = "1010"
+import random
+from typing import Union
 
 
 class Codebreaker:
-    def guess(self, number: str = None):
-        if TRUE_NUMBER == "":
-            return "Number is not defined"
+    def __init__(self) -> None:
+        self.NUMBER_TO_GUESS = "".join(random.sample("0123456789", 4))
+        print(f"number to guess 👀: {self.NUMBER_TO_GUESS}")
 
-        if number is None or len(number) != 4 or "e" not in list(number):
-            return "error"
-
-        if number == TRUE_NUMBER:
+    def guess(self, number: str = None) -> Union[bool, str]:
+        if not self.NUMBER_TO_GUESS:
+            raise Exception("Number is not defined")
+        elif not number.isdecimal():
+            raise Exception("Number must be decimal")
+        elif len(number) != 4:
+            raise Exception("Number must have 4 digits")
+        elif number == self.NUMBER_TO_GUESS:
             return True
 
-        result_x = ""
-        result_ = ""
         array_number = []
+        for _, digit in enumerate(number):
+            if digit in array_number:
+                raise Exception("Number must not have repeated digits")
+            array_number.append(digit)
 
-        for x in len(number):
-            if array_number[number[x]]:
-                return "error"
-
-        array_number[number[x]] = True
-
+        result_x = ""
+        result__ = ""
         number = list(number)
-
-        for index, x in number:
-            if TRUE_NUMBER[index] == number[index]:
+        for index, digit in enumerate(number):
+            if self.NUMBER_TO_GUESS[index] == number[index]:
                 result_x += "X"
-            elif x in TRUE_NUMBER:
-                result_ = "_"
+            elif digit in self.NUMBER_TO_GUESS:
+                result__ += "_"
 
-        return result_x + result_
+        return result_x + result__

@@ -1,18 +1,24 @@
-from codebreaker import Codebreaker
+"""This line of code import the class CodeBreaker """
+from codebreaker import CodeBreaker
 
-intentos_totales = 10
-codebreaker = Codebreaker()
+TOTAL_ATTEMPS = 10
+codebreaker = CodeBreaker()
+user_attemps = 0
 
-intento = 0
+print('\nPlay Codebreaker!\n')
+print("*************************** GAME RULES ***************************\n"
+      "1. You must enter a 4-digit number without duplicate digits\n"
+      "2. You only have 10 attempts to win the game\n"
+      "******************************************************************\n")
 
-print('Jugar Codebreaker!')
+while user_attemps < TOTAL_ATTEMPS:
+    user_number = input('Enter a number:')
+    resolve = codebreaker.adivinar(user_number)
+    if resolve == 1:
+        print('You win!! Congrats!!')
+        break
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
-
-
+    print(resolve)
+    user_attemps += 1
+    if user_attemps == 10:
+        print("Game Over :( !! You used your 10 available attemps")

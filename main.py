@@ -1,18 +1,35 @@
-from codebreaker import Codebreaker
+from __future__ import annotations
 
-intentos_totales = 10
-codebreaker = Codebreaker()
+from codebreaker import CodeBreaker
+from codebreaker import TRUE_NUMBER
 
-intento = 0
+INTENTOS_TOTALES = 5
 
-print('Jugar Codebreaker!')
+code_breaker = CodeBreaker()
+contador = 0
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
+print("Jugar Codebreaker!")
 
+while contador != INTENTOS_TOTALES:
+    number = input("Ingrese 4 numeros enteros consecutivos:")
+    resolve = code_breaker.adivinar(number)
 
+    while resolve is not True:
+        number = input("Ingrese 4 numeros enteros consecutivos:")
+        resolve = code_breaker.adivinar(number)
+        contador = contador + 1
+        restantes = INTENTOS_TOTALES - contador
+
+        if restantes == 0:
+            print("*Perdiste*")
+            print(" Juego terminado")
+            print(f"El valor a adivinar era {TRUE_NUMBER}")
+            break
+
+        if resolve:
+            print(f"Lo lograste en el intento numero {contador}")
+        else:
+            print(f"Te quedan {restantes} intentos")
+
+    print("*Ganaste, Adivinaste*")
+    break

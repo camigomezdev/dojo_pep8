@@ -16,12 +16,13 @@ y genera un Pull Request con tus cambios.
 
 1. El objetivo del juego es adivinar una secuencia numérica de 4 cifras oculta por el oponente en el menor número de intentos posibles.
 2. La secuencia numérica puede consistir en números del 0 al 9, y no se repiten los números dentro de la secuencia.
-3. Cada vez que hagas un intento, recibirás una retroalimentación en forma de "X" y "_".
+3. Cada vez que hagas un intento, recibirás una retroalimentación en forma de "X", "_" y "-".
 4. Un "X" significa que has adivinado correctamente un número en la posición correcta dentro de la secuencia.
 5. Un "_" significa que has adivinado correctamente un número, pero en una posición incorrecta dentro de la secuencia.
-6. Utilizando esta retroalimentación, deberás deducir la secuencia correcta.
-Por ejemplo, si tu intento es "1234" y recibes una retroalimentación de "XX__",significa que has adivinado correctamente dos numero en posición y dos están el la posición incorrecta.
-7. Con base en la retroalimentación recibida, realiza nuevos intentos ajustando tus suposiciones hasta que logres adivinar la secuencia correcta.
-8. Continúa haciendo intentos y recibiendo retroalimentación hasta que logres descifrar la secuencia completa.
+6. Un "-" significa que no existe el número.
+7. Utilizando esta retroalimentación, deberás deducir la secuencia correcta.
+Por ejemplo, si tu intento es "1234" y recibes una retroalimentación de "XX_-",significa que has adivinado correctamente dos numero en posición, un numero están el la posición incorrecta y un numero no existe.
+8. Con base en la retroalimentación recibida, realiza nuevos intentos ajustando tus suposiciones hasta que logres adivinar la secuencia correcta.
+9. Continúa haciendo intentos y recibiendo retroalimentación hasta que logres descifrar la secuencia completa.
 
 Recuerda que el desafío es encontrar la secuencia correcta en el menor número de intentos posible. ¡Buena suerte y disfruta jugando Codebreaker!

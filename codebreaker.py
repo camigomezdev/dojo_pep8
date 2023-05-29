@@ -1,34 +1,48 @@
-trueNumber = "1010";
+# Se require de la funcion random
+import random
+
 
 class Codebreaker:
+
+    # Compara el valor ingresado por terminal con el generado
+    def adivinar(self, truenumber, numero=None):
+        if len(numero) != 4 or Codebreaker.repetido(numero) or Codebreaker.digito(numero):
+            return "Error"
+
+        resultado = ''
+        for x in range(len(numero)):
+            if truenumber[x] == numero[x]:
+                resultado += 'X'
+
+            elif numero[x] in truenumber:
+                resultado += '_'
+            else:
+                resultado += '-'
+        return resultado
     
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
-
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
+    # Genera un numero aleatorio el cual hay que adivinar.
+    def generar():
+        numeros = list(range(10))  # Genera una lista del 0 al 9
+        random.shuffle(numeros)  # Reordena la lista de digitos
+        numero = numeros[:4]  # Asigna los cuatro primeros digitos
+        return ''.join(map(str, numero))
     
-    if numero == trueNumber:
-      return True
-
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
+    # Busca un caracter se repite en el valor ingresado
+    def repetido(numero):
+        for caracter in numero:
+            if numero.count(caracter) > 1:
+                return True
+        return False
     
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
-
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
-
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
-
-      elif x in trueNumber:
-        resultado_='_'
-
-    return resultadoX+resultado_
+    # Verifica que seal solo numeros
+    def digito(entrada):
+        if entrada.isdigit():
+            return False
+        else:
+            return True
+        
+    # Lee el archivo que tiene el texto con las instrucciones del juego
+    def instrucciones(archivo_texto):
+        with open(archivo_texto, 'r') as archivo:
+            contenido = archivo.read()
+            return contenido

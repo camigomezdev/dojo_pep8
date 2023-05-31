@@ -16,7 +16,7 @@ class Codebreaker:
         """
         self.right_number = str(''.join(random.sample("0123456789", 4)))
 
-    def guess(self, number=None):
+    def guess_opponent_number(self, number=None):
         """
             This method takes two parameters, self and number (with a default
             value of None). It will test if the "number" entered by the user

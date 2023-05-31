@@ -16,7 +16,7 @@ while True:
     if number == 'q':
         break
     try:
-        result = codebreaker.guess(number)
+        result = codebreaker.guess_opponent_number(number)
     except ValueError:
         print("The number can't contain repeated digits!.")
     except TypeError:

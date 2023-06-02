@@ -1,18 +1,20 @@
 from codebreaker import Codebreaker
 
-intentos_totales = 10
+TOTAL_ATTEMPTS = 5
+attempts = 1
 codebreaker = Codebreaker()
 
-intento = 0
 
-print('Jugar Codebreaker!')
+print('Play Codebreaker!')
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
-   print(resolve)
-   if resolve == True:
-      print('You win!!')
-      break
-
-
+while attempts <= TOTAL_ATTEMPTS:
+    try:
+        number = input('Guess the four digit number: ')
+        resolve = codebreaker.guess_number(number)
+        print(resolve)
+        if resolve:
+            print('You win!!')
+            break
+        attempts += 1
+    except ValueError:
+        print('Number cant be empty or its length is incorrect')

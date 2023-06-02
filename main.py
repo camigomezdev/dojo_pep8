@@ -12,7 +12,7 @@ while attempts <= TOTAL_ATTEMPTS:
         number = input('Guess the four digit number: ')
         resolve = codebreaker.guess_number(number)
         print(resolve)
-        if resolve is True:
+        if resolve:
             print('You win!!')
             break
         attempts += 1

@@ -1,34 +1,84 @@
-trueNumber = "1010"
+from helpers import is_number, is_numerical_sequence
+
+TRUE_NUMBER = "4567"
+RETRY_MESSAGE = "Please Retry Again!"
+ATTEMPS_LIMIT = 10
 
 
 class Codebreaker:
-    def adivinar(self, numero=None):
-        if trueNumber == "":
-            return "Number is not defined"
+    """The goal is to guess a 4 digit number."""
 
-        if numero is None or len(numero) != 4 or "e" not in list(numero):
-            return "error"
+    def __init__(self):
+        print("Lets go to play code breaker!!")
 
-        if numero == trueNumber:
-            return True
+    def validate_number_conditions(self, number: str) -> tuple[bool, str]:
+        """This function check the validate the conditions to accept the number
+        And start to play
+        """
+        if not is_number(number):
+            return False, f"It isn't a number!{RETRY_MESSAGE}"
 
-        resultadoX = ""
-        resultado_ = ""
-        arrayNumber = []
+        if not number or number is None:
+            return False, f"Number doesn't exist!{RETRY_MESSAGE}"
 
-        for x in len(numero):
-            if arrayNumber[numero[x]]:
-                return "error"
+        if len(number) != 4:
+            return (
+                False,
+                f"Number doesn't met the requirements! \
+                       {RETRY_MESSAGE}",
+            )
 
-            arrayNumber[numero[x]] = True
+        if not is_numerical_sequence(list(number)):
+            return (
+                False,
+                f"The number isn't a numerical sequence! \
+                    {RETRY_MESSAGE}",
+            )
 
-        numero = list(numero)
+        return True, "The number meets the requirements!"
 
-        for index, x in numero:
-            if trueNumber[index] == numero[index]:
-                resultadoX += "X"
+    def check_sequence_number(self, number: str) -> str:
+        resultado = ""
 
-            elif x in trueNumber:
-                resultado_ = "_"
+        for i in range(len(number)):
+            if number[i] == TRUE_NUMBER[i]:
+                resultado += "X"
+            elif number[i] in TRUE_NUMBER:
+                resultado += "_"
+            else:
+                resultado += " "
+        return resultado
 
-        return resultadoX + resultado_
+    def guess_number(self, number: str) -> tuple[bool, str]:
+        """This function play the game and gess the number"""
+
+        if number == TRUE_NUMBER:
+            return True, "XXXX"
+
+        return False, self.check_sequence_number(number)
+
+    def play(self) -> tuple[bool, str]:
+        attemps = 1
+        while True:
+            number = input("Code Breaker, Enter the sequence number:")
+            validate_number = self.validate_number_conditions(number)
+            if validate_number[0]:
+                result = self.guess_number(number)
+                if result[0]:
+                    print(
+                        f"{result[1]}. Congratulations you win in "
+                        f"{attemps} attempts!!!"
+                    )
+                    break
+                else:
+                    print(f"{result[1]}.{RETRY_MESSAGE} Attemps:{attemps}")
+            elif attemps != ATTEMPS_LIMIT:
+                result = validate_number
+                print(f"{result[1]}.{RETRY_MESSAGE} Attemps:{attemps}")
+            else:
+                print(
+                    f"{result[1]}. You lose! :(. You Exceed your "
+                    f"{attemps} attempts!!!"
+                )
+                break
+            attemps += 1

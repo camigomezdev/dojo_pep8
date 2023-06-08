@@ -5,7 +5,7 @@ TRUE_NUMBER = "4263"
 class Codebreaker:
 
     # method to guess the number, number is entered by the user
-    def guess(self, number=None):
+    def guess_number(self, number=None):
 
         # if there is no numerical sequence
         if TRUE_NUMBER == '':
@@ -20,27 +20,27 @@ class Codebreaker:
             return True
 
         # string to be returned to the user as feedback
-        result = ''
+        feedback_to_user = ''
 
         # convert number to list
         number = [int(digit) for digit in str(number)]
 
         # iterate around the list of digits and compare
-        for index, x in enumerate(number):
+        for index, digit in enumerate(number):
             # compare if the digits are equals and in the same position
             if TRUE_NUMBER[index] == str(number[index]):
-                result += 'X'
+                feedback_to_user += 'X'
 
             # compare if the digits are equals but in different position
-            elif str(x) in TRUE_NUMBER:
-                result += '_'
+            elif str(digit) in TRUE_NUMBER:
+                feedback_to_user += '_'
 
             # if the digit is not in the numerical sequence
             else:
-                result += " "
+                feedback_to_user += " "
 
-        # print the result
-        print(result)
+        # print the feedback_to_user
+        print(feedback_to_user)
 
         return False
 
@@ -51,8 +51,8 @@ if __name__ == "__main__":
     while True:
         try:
             user_number = int(input("Please enter a number: "))
-            result = Codebreaker().guess(user_number)
-            if result:
+            feedback_to_user = Codebreaker().guess_number(user_number)
+            if feedback_to_user:
                 print("Congratulations, you are the win!")
                 break
         except ValueError:

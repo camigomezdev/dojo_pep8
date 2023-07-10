@@ -1,16 +1,11 @@
-""" Test file for CodeBreaker"""
-# __doc__ (Test file for little game CodeBreaker where you must guess
-# the secret number)
-
+""" Test file for CodeBreaker """
 import unittest
 
 from codebreaker import CodeBreaker
 
 
 class TestCodeBreaker(unittest.TestCase):
-    """
-    Class for unittest CodeBreaker
-    """
+    """ Class for unittest CodeBreaker """
 
     def setUp(self):
         """
@@ -22,7 +17,7 @@ class TestCodeBreaker(unittest.TestCase):
         """
         Win Result Test
         """
-        resolve = self.codebreaker.guess_number('1010')
+        resolve = self.codebreaker.guess_number('1058')
 
         self.assertTrue(resolve)
 
@@ -37,29 +32,37 @@ class TestCodeBreaker(unittest.TestCase):
         """
         Random number insertion test
         """
-        resolve = self.codebreaker.guess_number('1020')
-        self.assertEqual('XX?X', resolve)
+        resolve = self.codebreaker.guess_number('1078')
+        self.assertEqual('XX X', resolve)
 
     def test_codebreaker_test_chars2(self):
         """
         Random number insertion test
         """
-        resolve = self.codebreaker.guess_number('1011')
-        self.assertEqual('XXX_', resolve)
+        resolve = self.codebreaker.guess_number('1059')
+        self.assertEqual('XXX ', resolve)
 
     def test_codebreaker_test_chars3(self):
         """
         Random number insertion test
         """
-        resolve = self.codebreaker.guess_number('9909')
-        self.assertEqual('??_?', resolve)
+        resolve = self.codebreaker.guess_number('9782')
+        self.assertEqual('  _ ', resolve)
 
-    def test_codebreaker_fail_chars(self):
+    def test_codebreaker_test_chars4(self):
         """
         Random number insertion test
         """
+        resolve = self.codebreaker.guess_number('9504')
+        self.assertEqual(' __ ', resolve)
+
+    def test_codebreaker_fail_chars(self):
+        """
+        No repeated digits test
+        """
         resolve = self.codebreaker.guess_number('9999')
-        self.assertEqual('????', resolve)
+        test = 'Error: No repeated numbers allowed!'
+        self.assertEqual(test, resolve)
 
 
 if __name__ == '__main__':

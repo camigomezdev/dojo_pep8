@@ -1,15 +1,15 @@
 from codebreaker import Codebreaker
 
-intentos_totales = 10
+total_attempts = 10
 codebreaker = Codebreaker()
 
-intento = 0
+attempt = 0
 
-print('Jugar Codebreaker!')
+print('Play Codebreaker!')
 
-while intento != intentos_totales:
-   number = input('Numero:');
-   resolve = codebreaker.adivinar(number)
+while attempt != total_attempts:
+   number = input('Number:')
+   resolve = codebreaker.guess(number)
    print(resolve)
    if resolve == True:
       print('You win!!')

@@ -2,30 +2,30 @@ trueNumber = "1010";
 
 class Codebreaker:
     
-  def adivinar(self, numero=None):
+  def guess(self, number=None):
     if trueNumber == '':
       return 'Number is not defined'
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
+    if number is None or len(number) != 4 or 'e' not in list(number):
       return "error"
     
-    if numero == trueNumber:
+    if number == trueNumber:
       return True
 
     resultadoX  = ''
     resultado_  = ''
     arrayNumber = []
     
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
+    for x in len(number):
+      if(arrayNumber[number[x]] == True):
         return 'error'
 
-      arrayNumber[numero[x]] = True
+      arrayNumber[number[x]] = True
     
-    numero = list(numero)
+    number = list(number)
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
+    for index, x in number:
+      if trueNumber[index] == number[index]:
         resultadoX+='X'
 
       elif x in trueNumber:

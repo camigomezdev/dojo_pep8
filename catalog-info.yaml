@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dojo_pep8
+  annotations:
+    github.com/project-slug: parraletz/dojo_pep8
+spec:
+  type: other
+  lifecycle: unknown
+  owner: parraletz

@@ -1,34 +1,42 @@
-trueNumber = "1010";
+"""
+    CodeBreaker
+"""
+TRUE_NUMBER = "1010"
 
-class Codebreaker:
-    
-  def adivinar(self, numero=None):
-    if trueNumber == '':
-      return 'Number is not defined'
 
-    if numero is None or len(numero) != 4 or 'e' not in list(numero):
-      return "error"
-    
-    if numero == trueNumber:
-      return True
+class CodeBreaker:
 
-    resultadoX  = ''
-    resultado_  = ''
-    arrayNumber = []
-    
-    for x in len(numero):
-      if(arrayNumber[numero[x]] == True):
-        return 'error'
+    """
+    CodeBreaker class
+    """
 
-      arrayNumber[numero[x]] = True
-    
-    numero = list(numero)
+    def adivinar(self, numero=None):
+        """
 
-    for index, x in numero:
-      if trueNumber[index] == numero[index]:
-        resultadoX+='X'
+        Args:
+            numero ():
 
-      elif x in trueNumber:
-        resultado_='_'
+        Returns:
 
-    return resultadoX+resultado_
+        """
+        if TRUE_NUMBER == "":
+            return "Number is not defined"
+
+        if numero is None or len(numero) != 4:
+            return "error"
+
+        if numero == TRUE_NUMBER:
+            return True
+
+        resultado_x = ""
+        resultado_ = ""
+        numero = []
+
+        for index in enumerate(numero):
+            if TRUE_NUMBER[index] == numero[index]:
+                resultado_x += "X"
+
+            elif numero[index] in TRUE_NUMBER:
+                resultado_ += "_"
+
+        return resultado_x + resultado_
